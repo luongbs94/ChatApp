@@ -26,8 +26,12 @@
             
         </activity>
         <activity android:name="uet.chatapp.chatapp.MainScreen">
-            
+ 
         </activity>
+        <activity android:name="uet.chatapp.chatapp.MessageBoxActivity">    
+                   
+        </activity>
+
     </application>
 
 </manifest>

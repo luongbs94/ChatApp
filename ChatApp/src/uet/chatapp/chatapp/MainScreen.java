@@ -37,7 +37,7 @@ public class MainScreen extends FragmentActivity implements
 			actionBar.addTab(actionBar.newTab().setText(tab_name)
 					.setTabListener(this));
 		}
-
+		
 		/**
 		 * on swiping the viewpager make respective tab selected
 		 * */
@@ -58,6 +58,8 @@ public class MainScreen extends FragmentActivity implements
 			public void onPageScrollStateChanged(int arg0) {
 			}
 		});
+		
+		
 	}
 
 	@Override

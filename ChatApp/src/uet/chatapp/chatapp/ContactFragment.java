@@ -45,23 +45,20 @@ public class ContactFragment extends Fragment  {
         listView = (ListView) getActivity().findViewById(R.id.contact_list);  
         listView.setAdapter(adapter);  
         
-//        listView.setOnItemClickListener(new OnItemClickListener() {  
-//   
-//            @Override 
-//            public void onItemClick(AdapterView<?> parent, View view,  
-//                    int position, long id) {  
-//                Intent intent = new Intent(getActivity(), MessageBoxActivity.class);
-//                TextView tv1 = (TextView) view.findViewById(R.id.content);
-//                TextView tv2 = (TextView) view.findViewById(R.id.friend_name);
-//                
-//                String message = tv1.getText().toString();
-//                String friend_name = tv2.getText().toString();
-//
-//                intent.putExtra("message", message);
-//                intent.putExtra("friend_name", friend_name);
-//          
-//                startActivity(intent);
-//            }  
-//        });            
+        listView.setOnItemClickListener(new OnItemClickListener() {  
+   
+            @Override 
+            public void onItemClick(AdapterView<?> parent, View view,  
+                    int position, long id) {  
+                Intent intent = new Intent(getActivity(), MessageBoxActivity.class);
+                TextView name = (TextView) view.findViewById(R.id.contact_name);
+                
+                String friend_name = name.getText().toString();
+
+                intent.putExtra("friend_name", friend_name);
+          
+                startActivity(intent);
+            }  
+        });            
     }  
 }

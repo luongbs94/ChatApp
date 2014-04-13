@@ -18,7 +18,7 @@
        style="?android:attr/buttonStyleSmall"
        android:layout_width="wrap_content"
        android:layout_height="wrap_content"
-       android:text="@string/post" />
+       android:text="@string/btn_post" />
    <ListView 
        android:id="@+id/status_list"     
        android:layout_marginTop="20dp"
