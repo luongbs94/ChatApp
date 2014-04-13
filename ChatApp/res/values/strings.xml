@@ -4,5 +4,9 @@
     <string name="app_name">ChatApp</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
-
+	<string name="text">text</string>
+ 	<string name="time">time</string>
+	<string name="status">hello</string>
+	<string name="post">post</string>
+	<string name="status_hint">What\'s on your mind?</string>
 </resources>
