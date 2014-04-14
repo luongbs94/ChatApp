@@ -17,5 +17,4 @@ public interface IAppManager {
 	public String addNewFriendRequest(String friendUsername);
 	public String sendFriendsReqsResponse(String approvedFriendNames,
 			String discardedFriendNames);
-
 }
