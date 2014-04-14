@@ -1087,8 +1087,9 @@ containing a value of this type.
         public static final int icon=0x7f02005e;
         public static final int list_selector=0x7f02005f;
         public static final int password_field=0x7f020060;
-        public static final int uet_connection_logo=0x7f020061;
-        public static final int username_field=0x7f020062;
+        public static final int stat_sample=0x7f020061;
+        public static final int uet_connection_logo=0x7f020062;
+        public static final int username_field=0x7f020063;
     }
     public static final class id {
         public static final int action_bar=0x7f05001c;
@@ -1313,11 +1314,22 @@ containing a value of this type.
         public static final int btn_post=0x7f0a0013;
         public static final int btn_send=0x7f0a0016;
         public static final int enter_message=0x7f0a0015;
+        public static final int fill_both_username_and_password=0x7f0a0021;
         public static final int hello_world=0x7f0a000e;
+        public static final int local_service_stopped=0x7f0a0017;
+        public static final int make_sure_username_and_password_correct=0x7f0a0020;
+        public static final int not_connected_to_network=0x7f0a001f;
+        public static final int not_connected_to_service=0x7f0a001e;
+        public static final int signup_failed=0x7f0a001a;
+        public static final int signup_fill_all_fields=0x7f0a001d;
+        public static final int signup_successfull=0x7f0a0018;
+        public static final int signup_type_same_password_in_password_fields=0x7f0a001c;
+        public static final int signup_user_crash=0x7f0a0019;
         public static final int status=0x7f0a0012;
         public static final int status_hint=0x7f0a0014;
         public static final int text=0x7f0a0010;
         public static final int time=0x7f0a0011;
+        public static final int username_and_password_length_short=0x7f0a001b;
     }
     public static final class style {
         /** 
