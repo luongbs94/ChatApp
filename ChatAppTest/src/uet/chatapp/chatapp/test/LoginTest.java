@@ -1,14 +1,15 @@
 package uet.chatapp.chatapp.test;
 
 import uet.chatapp.chatapp.Login;
-import android.content.Intent;
-import android.test.ActivityUnitTestCase;
-import android.test.suitebuilder.annotation.MediumTest;
-import android.widget.Button;
+import uet.chatapp.chatapp.SignUp;
+import android.test.ActivityInstrumentationTestCase2;
 
-public class LoginTest extends ActivityUnitTestCase<Login> {
+import com.robotium.solo.Solo;
 
-	private Intent mIntent;
+
+public class LoginTest extends ActivityInstrumentationTestCase2<Login>{
+	
+	private Solo solo;
 
 	public LoginTest() {
 		super(Login.class);
@@ -17,31 +18,30 @@ public class LoginTest extends ActivityUnitTestCase<Login> {
 	@Override
 	protected void setUp() throws Exception {
 		super.setUp();
-		mIntent = new Intent(getInstrumentation().getTargetContext(),
-				Login.class);
+		solo = new Solo(getInstrumentation(), getActivity());
 	}
-
-	@MediumTest
-	public void testPrecoditions() {
-		startActivity(mIntent, null, null);
-		final Button login_button = (Button) getActivity().findViewById(
-				uet.chatapp.chatapp.R.id.login_login_button);
-
-		assertNotNull("Login is null", getActivity());
-		assertNotNull("login_button is null", login_button);
-
+	
+	public void testCheckCurrentActivity(){
+		solo.assertCurrentActivity("Check current Activity", Login.class);
 	}
-
-	@MediumTest
-	public void testNewActivityWhenClickLogin() {
-		startActivity(mIntent, null, null);
-		final Button login_button = (Button) getActivity().findViewById(
-				uet.chatapp.chatapp.R.id.login_login_button);
-		login_button.performClick();
-		final Intent launchIntent = getStartedActivityIntent();
-		assertNotNull("Intent not null", launchIntent);
-		assertTrue(isFinishCalled());
+	
+	public void testLoginNotFillAllField(){
 		
 	}
-
+	
+	public void testLoginUserNameOrPasswordNotCorrect(){
+		
+	}
+	
+	public void testLoginButtonClick(){
+		
+	}
+	
+	public void testSingUpButtonClick(){
+		solo.clickOnText("Dont have an account. Create now");
+		solo.assertCurrentActivity("SignUp class", SignUp.class);
+		
+		
+	}
+	
 }
