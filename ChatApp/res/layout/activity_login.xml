@@ -145,7 +145,7 @@
         android:layout_marginTop="20dp"
         android:background="#FFFFFF"
         android:gravity="center"
-        android:text="Don&apos;t have an account? Creat here "
+        android:text="Dont have an account. Create now"
         android:textColor="#9900CC"
         android:textSize="14sp" />
 
