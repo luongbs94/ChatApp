@@ -1,15 +1,41 @@
-<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="vertical"
-    android:background="#FFFFFF">
- 
-    <ListView
+    android:background="#FFFFFF" >
+	<RelativeLayout
+        android:id="@+id/contact_form"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+    	    
+        <EditText
+            android:id="@+id/contact_edit_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_toLeftOf="@+id/btn_addfriend"
+            android:hint="@string/text"
+            android:inputType="text" />
+
+ 	    <Button
+ 	        android:id="@+id/btn_addfriend"
+ 	        android:layout_width="wrap_content"
+ 	        android:layout_height="wrap_content"
+ 	        android:layout_alignBottom="@+id/contact_edit_text"
+ 	        android:layout_alignParentRight="true"
+ 	        android:layout_alignParentTop="true"
+ 	        android:onClick="addFriend"
+ 	        android:text="@string/btn_add_friend" />
+ 	           
+	</RelativeLayout>
+	
+   <ListView 
         android:id="@+id/contact_list"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:divider="#b5b5b5"
         android:dividerHeight="1dp" />
- 
+   
 </LinearLayout>
