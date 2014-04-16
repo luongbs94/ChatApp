@@ -35,7 +35,7 @@ public class MessageFragment extends Fragment  {
     public void onActivityCreated(Bundle savedInstanceState) {  
         super.onActivityCreated(savedInstanceState);  
            
-        //Hard code: add message to ListView  
+        //Hard code: add message to list  
         message = new ArrayList<MessageItemInList>();
     	message.add(new MessageItemInList("luong", "good morning", "06:00"));
     	message.add(new MessageItemInList("long", "good afternoon", "12:00"));

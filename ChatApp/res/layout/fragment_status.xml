@@ -6,24 +6,37 @@
     android:layout_marginTop="5dp"
     android:orientation="vertical"
     android:background="#FFFFFF" >
+	<RelativeLayout
+        android:id="@+id/status_form"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+    	    
+        <EditText
+            android:id="@+id/status_edit_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_toLeftOf="@+id/status_button_post"
+            android:hint="@string/status_hint"
+            android:inputType="text" />
 
-   <EditText
-       android:id="@+id/status_edit_text"
-       android:layout_width="match_parent"
-       android:layout_height="wrap_content"
-       android:hint="@string/status_hint"
-       />
-
-   <Button
-       android:id="@+id/status_button_post"
-       style="?android:attr/buttonStyleSmall"
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       android:text="@string/btn_post" />
+ 	    <Button
+ 	        android:id="@+id/status_button_post"
+ 	        android:layout_width="wrap_content"
+ 	        android:layout_height="wrap_content"
+ 	        android:layout_alignBottom="@+id/status_edit_text"
+ 	        android:layout_alignParentRight="true"
+ 	        android:layout_alignParentTop="true"
+ 	        android:text="@string/btn_post" />
+ 	           
+	</RelativeLayout>
+	
    <ListView 
        android:id="@+id/status_list"     
        android:layout_marginTop="20dp"
        android:layout_width="fill_parent"
        android:layout_height="fill_parent"
        />
+   
 </LinearLayout>
