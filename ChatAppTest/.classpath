@@ -4,12 +4,12 @@
 	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.ANDROID_FRAMEWORK"/>
 	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.LIBRARIES"/>
 	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.DEPENDENCIES"/>
-	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="src" path="gen"/>
 	<classpathentry exported="true" kind="lib" path="robotium/robotium-solo-5.1.jar">
 		<attributes>
-			<attribute name="javadoc_location" value="jar:file:/C:/Users/luong/Dropbox/Eclipse/ChatApp/ChatApp/ChatAppTest/robotium/robotium-solo-5.1-javadoc.jar!/"/>
+			<attribute name="javadoc_location" value="jar:file:/E:/eclipse/eclipse/workspace/robotium-solo-5.1-javadoc.jar!/"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="gen"/>
 	<classpathentry kind="output" path="bin/classes"/>
 </classpath>
