@@ -11,6 +11,7 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 import uet.chatapp.chatapp.R;
 import uet.chatapp.model.ContactItem;
+import uet.chatapp.model.MessageItemInMessageBox;
 
 public class ContactListAdapter extends BaseAdapter {
 	
@@ -21,7 +22,11 @@ public class ContactListAdapter extends BaseAdapter {
 		this.activity = activity;
 		this.list_contact = list_contact ;
 	}
-
+	
+	public void add(ContactItem object) {
+		list_contact.add(0, object);
+	}
+	
 	@Override
 	public int getCount() {
 		return list_contact.size();

@@ -22,6 +22,10 @@ public class StatusListAdapter extends BaseAdapter {
 		this.list_status = list_status ;
 	}
 
+	public void add(StatusItem obj){
+		list_status.add(0, obj);
+	}
+	
 	@Override
 	public int getCount() {
 		return list_status.size();
@@ -29,7 +33,7 @@ public class StatusListAdapter extends BaseAdapter {
 
 	@Override
 	public Object getItem(int position) {
-		return position;
+		return list_status.get(position);
 	}
 
 	@Override
