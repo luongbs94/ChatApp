@@ -11,7 +11,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
-import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 import uet.chatapp.adapter.MessageListAdapter;
@@ -21,8 +20,16 @@ public class MessageFragment extends Fragment  {
 	private ArrayList<MessageItemInList> message;
 	ListView listView;
 	MessageListAdapter adapter;
-	
+	private static MessageFragment instance = null;
+
 	public MessageFragment(){}
+
+	public static MessageFragment getInstance(){
+		if (instance == null){
+			instance = new MessageFragment();
+		}
+		return instance;
+	}
 	
 	@Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -34,14 +41,15 @@ public class MessageFragment extends Fragment  {
     @Override 
     public void onActivityCreated(Bundle savedInstanceState) {  
         super.onActivityCreated(savedInstanceState);  
-           
-        //Hard code: add message to ListView  
-        message = new ArrayList<MessageItemInList>();
-    	message.add(new MessageItemInList("luong", "good morning", "06:00"));
-    	message.add(new MessageItemInList("long", "good afternoon", "12:00"));
-    	message.add(new MessageItemInList("hao", "hi", "12:00")); 
-           
-        adapter = new MessageListAdapter(this.getActivity(), message); 
+        
+        if (adapter == null){
+            // Hard code: add message to list  
+            message = new ArrayList<MessageItemInList>();
+        	message.add(new MessageItemInList("luong", "good morning", "06:00"));
+        	message.add(new MessageItemInList("long", "good afternoon", "12:00"));
+        	message.add(new MessageItemInList("hao", "hi", "12:00"));    
+            adapter = new MessageListAdapter(this.getActivity(), message);         	
+        }
         listView = (ListView) getActivity().findViewById(R.id.message_list);  
         listView.setAdapter(adapter);  
         

@@ -1,20 +1,17 @@
 package uet.chatapp.chatapp;
 
 import uet.chatapp.adapter.TabsPagerAdapter;
-import uet.chatapp.services.IMService;
 import android.app.ActionBar;
 import android.app.ActionBar.Tab;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
-import android.view.Window;
-import android.view.WindowManager;
 
 public class MainScreen extends FragmentActivity implements
 		ActionBar.TabListener {
 
-	private ViewPager viewPager;
+	public ViewPager viewPager;
 	private TabsPagerAdapter mAdapter;
 	private ActionBar actionBar;
 	// Tab titles
@@ -33,7 +30,7 @@ public class MainScreen extends FragmentActivity implements
 		actionBar = getActionBar();
 		mAdapter = new TabsPagerAdapter(getSupportFragmentManager());
 		viewPager.setAdapter(mAdapter);
-		actionBar.setHomeButtonEnabled(false);
+		//actionBar.setHomeButtonEnabled(false);
 		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
 
 		// Adding Tabs
@@ -41,7 +38,7 @@ public class MainScreen extends FragmentActivity implements
 			actionBar.addTab(actionBar.newTab().setText(tab_name)
 					.setTabListener(this));
 		}
-
+		
 		/**
 		 * on swiping the viewpager make respective tab selected
 		 * */
