@@ -11,7 +11,7 @@ import android.support.v4.view.ViewPager;
 public class MainScreen extends FragmentActivity implements
 		ActionBar.TabListener {
 
-	private ViewPager viewPager;
+	public ViewPager viewPager;
 	private TabsPagerAdapter mAdapter;
 	private ActionBar actionBar;
 	// Tab titles
@@ -38,7 +38,7 @@ public class MainScreen extends FragmentActivity implements
 			actionBar.addTab(actionBar.newTab().setText(tab_name)
 					.setTabListener(this));
 		}
-
+		
 		/**
 		 * on swiping the viewpager make respective tab selected
 		 * */

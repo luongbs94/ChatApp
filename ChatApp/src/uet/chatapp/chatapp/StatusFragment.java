@@ -19,8 +19,16 @@ public class StatusFragment extends Fragment  {
 	private ArrayList<StatusItem> status;
 	ListView listView;
 	StatusListAdapter adapter;
-	
+	private static StatusFragment instance = null;
+
 	public StatusFragment(){}
+
+	public static StatusFragment getInstance(){
+		if (instance == null){
+			instance = new StatusFragment();
+		}
+		return instance;
+	}
 	
 	@Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -48,15 +56,17 @@ public class StatusFragment extends Fragment  {
     @Override 
     public void onActivityCreated(Bundle savedInstanceState) {  
         super.onActivityCreated(savedInstanceState);  
-           
-        //Hard code: add status to list 
-        status = new ArrayList<StatusItem>();
-    	status.add(new StatusItem("luong", "Hello. Today I am happy", "12:00"));
-    	status.add(new StatusItem("long", "good afternoon. Today I am worry", "12:00"));
-    	status.add(new StatusItem("hao", "hi. Have a sweet dream ", "12:00")); 
-           
-        adapter = new StatusListAdapter(this.getActivity(), status); 
+        
+        if (adapter == null){
+            //Hard code: add status to list 
+            status = new ArrayList<StatusItem>();
+        	status.add(new StatusItem("luong", "Hello. Today I am happy", "12:00"));
+        	status.add(new StatusItem("long", "good afternoon. Today I am worry", "12:00"));
+        	status.add(new StatusItem("hao", "hi. Have a sweet dream ", "12:00")); 
+               
+            adapter = new StatusListAdapter(this.getActivity(), status); 
+        }
         listView = (ListView) getActivity().findViewById(R.id.status_list);  
-        listView.setAdapter(adapter);    
+        listView.setAdapter(adapter);            	
     }  
 }

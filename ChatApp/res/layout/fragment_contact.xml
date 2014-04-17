@@ -16,7 +16,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_toLeftOf="@+id/btn_addfriend"
-            android:hint="@string/text"
+            android:hint=""
             android:inputType="text" />
 
  	    <Button

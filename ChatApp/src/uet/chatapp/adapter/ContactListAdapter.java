@@ -24,7 +24,7 @@ public class ContactListAdapter extends BaseAdapter {
 	}
 	
 	public void add(ContactItem object) {
-		list_contact.add(object);
+		list_contact.add(0, object);
 	}
 	
 	@Override

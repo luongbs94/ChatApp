@@ -33,7 +33,7 @@ public class StatusListAdapter extends BaseAdapter {
 
 	@Override
 	public Object getItem(int position) {
-		return position;
+		return list_status.get(position);
 	}
 
 	@Override
