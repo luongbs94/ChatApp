@@ -17,13 +17,13 @@ public class TabsPagerAdapter extends FragmentPagerAdapter {
 		switch (index) {
 		case 0:
 			// Top Rated fragment activity
-			return new StatusFragment();
+			return StatusFragment.getInstance();
 		case 1:
 			// Games fragment activity
-			return new MessageFragment();
+			return MessageFragment.getInstance();
 		case 2:
 			// Movies fragment activity
-			return new ContactFragment();
+			return ContactFragment.getInstance();
 		}
 
 		return null;

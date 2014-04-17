@@ -22,8 +22,16 @@ public class ContactFragment extends Fragment  {
 	private ArrayList<ContactItem> contact;
 	ListView listView;
 	ContactListAdapter adapter;
+	private static ContactFragment instance = null;
 	
 	public ContactFragment(){}
+	
+	public static ContactFragment getInstance(){
+		if (instance == null){
+			instance = new ContactFragment();
+		}
+		return instance;
+	}
 	
 	@Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -44,17 +52,20 @@ public class ContactFragment extends Fragment  {
         
         return rootView;
     }
+	
     @Override 
     public void onActivityCreated(Bundle savedInstanceState) {  
         super.onActivityCreated(savedInstanceState);  
-           
-        //Hard code: add contact to list 
-        contact = new ArrayList<ContactItem>();
-        contact.add(new ContactItem("luong"));
-        contact.add(new ContactItem("long"));
-        contact.add(new ContactItem("hao")); 
-           
-        adapter = new ContactListAdapter(this.getActivity(), contact); 
+        
+        if (adapter == null){
+            //Hard code: add contact to list 
+            contact = new ArrayList<ContactItem>();
+            contact.add(new ContactItem("luong"));
+            contact.add(new ContactItem("long"));
+            contact.add(new ContactItem("hao")); 
+            adapter = new ContactListAdapter(this.getActivity(), contact);         	
+        }
+
         listView = (ListView) getActivity().findViewById(R.id.contact_list);  
         listView.setAdapter(adapter);  
         
@@ -67,9 +78,10 @@ public class ContactFragment extends Fragment  {
                 TextView name = (TextView) view.findViewById(R.id.contact_name);
                 
                 String friend_name = name.getText().toString();
-
+                
+                intent.putExtra("message", "");
                 intent.putExtra("friend_name", friend_name);
-          
+                
                 startActivity(intent);
             }  
         });            
