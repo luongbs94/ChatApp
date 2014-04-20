@@ -14,10 +14,10 @@ import javax.xml.parsers.SAXParserFactory;
 
 import org.xml.sax.SAXException;
 
-import uet.chatapp.chatapp.Login;
-import uet.chatapp.chatapp.MessageFragment;
+import uet.chatapp.activity.LoginActivity;
 import uet.chatapp.chatapp.R;
 import uet.chatapp.communication.SocketOperator;
+import uet.chatapp.fragment.MessageFragment;
 import uet.chatapp.interfaces.IAppManager;
 import uet.chatapp.interfaces.ISocketOperator;
 import uet.chatapp.interfaces.IUpdateData;
@@ -25,8 +25,8 @@ import uet.chatapp.tool.FriendController;
 import uet.chatapp.tool.LocalStorageHandler;
 import uet.chatapp.tool.MessageController;
 import uet.chatapp.tool.XMLHandler;
-import uet.chatapp.types.FriendInfo;
-import uet.chatapp.types.MessageInfo;
+import uet.chatapp.type.FriendInfo;
+import uet.chatapp.type.MessageInfo;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.Service;
@@ -182,7 +182,7 @@ public class IMService extends Service implements IAppManager, IUpdateData {
 						
 		Log.d("result", result);
 		
-		if (result != null && !result.equals(Login.AUTHENTICATION_FAILED)) {
+		if (result != null && !result.equals(LoginActivity.AUTHENTICATION_FAILED)) {
 			// if user is authenticated then return string from server is not
 			// equal to AUTHENTICATION_FAILED
 			this.authenticatedUser = true;
