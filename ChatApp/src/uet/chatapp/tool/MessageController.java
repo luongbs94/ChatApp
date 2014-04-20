@@ -1,6 +1,6 @@
 package uet.chatapp.tool;
 
-import uet.chatapp.types.MessageInfo;
+import uet.chatapp.type.MessageInfo;
 
 
 public class MessageController {

@@ -1,7 +1,7 @@
 package uet.chatapp.interfaces;
 
-import uet.chatapp.types.FriendInfo;
-import uet.chatapp.types.MessageInfo;
+import uet.chatapp.type.FriendInfo;
+import uet.chatapp.type.MessageInfo;
 
 public interface IUpdateData {
 	public void updateData(MessageInfo[] messages, FriendInfo[] friends,
