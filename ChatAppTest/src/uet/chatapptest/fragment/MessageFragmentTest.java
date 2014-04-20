@@ -12,6 +12,8 @@ import android.view.View;
 import android.widget.ListView;
 
 public class MessageFragmentTest extends ActivityInstrumentationTestCase2<MainScreenActivity> {
+	
+	// Solo is a class in Robotium lib support android test
 	private Solo solo;
 	
 	public MessageFragmentTest() {
@@ -30,6 +32,9 @@ public class MessageFragmentTest extends ActivityInstrumentationTestCase2<MainSc
 		solo.finishOpenedActivities();
 	}
 	
+	/**
+	 * Test if it change to MessageBoxActivity when click to a message in list.
+	 */			
 	public void testClickToAMessage(){	
 		// Check pre-conditions
 		solo.waitForActivity("MainScreen");
