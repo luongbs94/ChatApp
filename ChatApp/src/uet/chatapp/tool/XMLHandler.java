@@ -7,9 +7,9 @@ import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
 import uet.chatapp.interfaces.IUpdateData;
-import uet.chatapp.types.FriendInfo;
-import uet.chatapp.types.MessageInfo;
-import uet.chatapp.types.STATUS;
+import uet.chatapp.type.FriendInfo;
+import uet.chatapp.type.MessageInfo;
+import uet.chatapp.type.Status;
 import android.util.Log;
 
 
@@ -73,13 +73,13 @@ public class XMLHandler extends DefaultHandler {
 			// friend.expire = attributes.getValue("expire");
 
 			if (status != null && status.equals("online")) {
-				friend.status = STATUS.ONLINE;
+				friend.status = Status.ONLINE;
 				mOnlineFriends.add(friend);
 			} else if (status.equals("unApproved")) {
-				friend.status = STATUS.UNAPPROVED;
+				friend.status = Status.UNAPPROVED;
 				mUnapprovedFriends.add(friend);
 			} else {
-				friend.status = STATUS.OFFLINE;
+				friend.status = Status.OFFLINE;
 				mFriends.add(friend);
 			}
 		} else if (localName == "user") {
