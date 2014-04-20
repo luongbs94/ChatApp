@@ -24,8 +24,12 @@ import android.support.v4.app.FragmentActivity;
 import com.robotium.solo.Solo;
 
 public class StatusFragmentTest  extends ActivityInstrumentationTestCase2<MainScreenActivity> {
-	private Solo solo;
+	
 	public static final String STATUS_CONTENT = "Testing status fragment";
+	
+	// Solo is a class in Robotium lib support android test
+	private Solo solo;
+	
 	
 	public StatusFragmentTest() {
 		super(MainScreenActivity.class);
@@ -43,13 +47,18 @@ public class StatusFragmentTest  extends ActivityInstrumentationTestCase2<MainSc
 		solo.finishOpenedActivities();
 	}
 	
+	/**
+	 * Test if it is possible to post a status.
+	 */				
 	public void testPostStatus(){
 		// Get view of status fragment
 		Activity mainActivity = this.getActivity();
 		ViewPager viewPager = (ViewPager) mainActivity.findViewById(R.id.pager);
 		int id = viewPager.getCurrentItem();
-		Fragment frag = ((FragmentActivity) mainActivity).getSupportFragmentManager()
-										.findFragmentByTag("android:switcher:"+viewPager.getId()+":"+id); 
+		
+		Fragment frag = ((FragmentActivity) mainActivity).
+							getSupportFragmentManager().
+								findFragmentByTag("android:switcher:"+viewPager.getId()+":"+id); 
 		View statusFragView = frag.getView();
 		
 		// Check pre-conditions
@@ -65,12 +74,7 @@ public class StatusFragmentTest  extends ActivityInstrumentationTestCase2<MainSc
 		// Check if status is added in status list
 		ListView listStatus = (ListView) statusFragView.findViewById(R.id.status_list);
 		View newStatusView = listStatus.getChildAt(0);
-		TextView status_content = (TextView) newStatusView.findViewById(R.id.status_content);
-		assertEquals(status_content.getText().toString(), STATUS_CONTENT);
-		
-//		StatusListAdapter adapter = (StatusListAdapter) listStatus.getAdapter();
-//		StatusItem status = (StatusItem) adapter.getItem(0);
-//		String status_content = status.getstatus_content();
-//		assertEquals(status_content, STATUS_CONTENT);
+		TextView statusContent = (TextView) newStatusView.findViewById(R.id.status_content);
+		assertEquals(statusContent.getText().toString(), STATUS_CONTENT);
 	}
 }
