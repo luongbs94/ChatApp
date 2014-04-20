@@ -1,12 +1,13 @@
 package uet.chatapptest.activity;
 
 import uet.chatapp.activity.*;
+import uet.chatapp.chatapp.R;
 import android.test.ActivityInstrumentationTestCase2;
-
+import android.widget.EditText;
 import com.robotium.solo.Solo;
 
-public class MessageBoxActivityTest  extends 
-			ActivityInstrumentationTestCase2<MainScreenActivity> {
+public class MessageBoxActivityTest  extends
+			ActivityInstrumentationTestCase2<MessageBoxActivity> {
 	
 	public static final String MESSAGE = "hello, how are you";
 	
@@ -15,7 +16,7 @@ public class MessageBoxActivityTest  extends
 	
 	
 	public MessageBoxActivityTest() {
-		super(MainScreenActivity.class);
+		super(MessageBoxActivity.class);
 	}
 
 	@Override
@@ -30,25 +31,23 @@ public class MessageBoxActivityTest  extends
 		solo.finishOpenedActivities();
 	}
 	
+	/**
+	 * Test if it is possible to send message.
+	 * 
+	 * Compose a message and click button send
+	 * Check if message is occur in message box in the right side
+	 */			
 	public void testSendMessage(){
 		// Check current activity
-		//solo.assertCurrentActivity("MessageBoxActivity expected", MessageBoxActivity.class);
-
-//		// Get view of contact fragment
-//		Activity mainActivity = this.getActivity();
-//		ViewPager viewPager = (ViewPager) mainActivity.findViewById(R.id.pager);
-//		View ContactFragView = viewPager.getFocusedChild();
-//		
-//		// Add a contact
-//		EditText editText = (EditText) ContactFragView.findViewById(R.id.contact_edit_text);
-//		solo.enterText(editText, CONTACT);
-//		solo.clickOnButton("Add");
-//		solo.sleep(200);
-//		
-//		// Check if contact is added in contact list
-//		ListView listContact = (ListView) ContactFragView.findViewById(R.id.contact_list);
-//		View newContactView = listContact.getChildAt(0);
-//		TextView contact_name = (TextView) newContactView.findViewById(R.id.contact_name);
-//		assertEquals(contact_name.getText().toString(), CONTACT);
+		solo.assertCurrentActivity("MessageBoxActivity expected", MessageBoxActivity.class);
+		// Enter a message
+		EditText messageEditText = (EditText) solo.getView(R.id.edit_message);
+		solo.enterText(messageEditText, MESSAGE);
+		solo.clickOnButton("Send");
+		solo.sleep(100);
+		
+		// Check if message is sent and displayed in list message
+		boolean messageSent = solo.searchText(MESSAGE);
+		assertTrue(messageSent);
 	}
 }

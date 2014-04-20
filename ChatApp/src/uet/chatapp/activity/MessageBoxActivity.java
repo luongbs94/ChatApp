@@ -30,14 +30,16 @@ public class MessageBoxActivity extends Activity {
 
 	private void addItems() {
 	    Intent intent = getIntent();
-	    String message = intent.getStringExtra("message");
-	    if (message.equals(""))
-	    	return;
-	    adapter.add(new MessageItemInMessageBox(true, message));
-	    getActionBar().setTitle(intent.getStringExtra("friend_name")); 
+	    if (intent != null){
+		    String message = intent.getStringExtra("message");
+		    if (message == null || message.equals(""))
+		    	return;
+		    adapter.add(new MessageItemInMessageBox(true, message));	
+		    getActionBar().setTitle(intent.getStringExtra("friend_name"));
+	    }     
 	}
 	
-	/** Called when the user clicks the Send button */
+	// Called when the user clicks the Send button
 	public void sendMessage(View view) {
 		EditText editText = (EditText) findViewById(R.id.edit_message);
 		adapter.add(new MessageItemInMessageBox(false, editText.getText().toString()));
