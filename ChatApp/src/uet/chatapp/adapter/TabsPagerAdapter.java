@@ -3,7 +3,10 @@ package uet.chatapp.adapter;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
-import uet.chatapp.chatapp.*;
+import uet.chatapp.activity.*;
+import uet.chatapp.fragment.ContactFragment;
+import uet.chatapp.fragment.MessageFragment;
+import uet.chatapp.fragment.StatusFragment;
 
 public class TabsPagerAdapter extends FragmentPagerAdapter {
 
@@ -16,13 +19,13 @@ public class TabsPagerAdapter extends FragmentPagerAdapter {
 
 		switch (index) {
 		case 0:
-			// Top Rated fragment activity
+			// Status fragment activity
 			return StatusFragment.getInstance();
 		case 1:
-			// Games fragment activity
+			// Message fragment activity
 			return MessageFragment.getInstance();
 		case 2:
-			// Movies fragment activity
+			// Contact fragment activity
 			return ContactFragment.getInstance();
 		}
 

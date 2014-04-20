@@ -1,6 +1,6 @@
 package uet.chatapp.tool;
 
-import uet.chatapp.types.FriendInfo;
+import uet.chatapp.type.FriendInfo;
 
 
 public class FriendController {
