@@ -30,7 +30,7 @@ public class MessageFragmentTest extends ActivityInstrumentationTestCase2<MainSc
 		solo.finishOpenedActivities();
 	}
 	
-	public void testChangeToMessageBoxActivityWhenClickToAMessage(){	
+	public void testClickToAMessage(){	
 		// Check pre-conditions
 		solo.waitForActivity("MainScreen");
 		solo.assertCurrentActivity("MainScreen expected", MainScreenActivity.class);	
