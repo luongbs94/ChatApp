@@ -12,7 +12,7 @@ import android.widget.EditText;
 public class SignUpActivityTest extends
 			ActivityInstrumentationTestCase2<SignUpActivity> {
 	
-	public static final String USERNAME = "test002";
+	public static final String USERNAME = "test003";
 	public static final String PASSWORD = "123456";
 	
 	// Solo is a class in Robotium lib support android test

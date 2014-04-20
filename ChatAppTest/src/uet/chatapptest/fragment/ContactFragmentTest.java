@@ -74,11 +74,14 @@ public class ContactFragmentTest  extends ActivityInstrumentationTestCase2<MainS
 		// Check if contact is added in contact list
 		ListView listContact = (ListView) ContactFragView.findViewById(R.id.contact_list);
 		View newContactView = listContact.getChildAt(0);
-		TextView contact_name = (TextView) newContactView.findViewById(R.id.contact_name);
-		assertEquals(contact_name.getText().toString(), CONTACT);
+		TextView contactName = (TextView) newContactView.findViewById(R.id.contact_name);
+		assertEquals(contactName.getText().toString(), CONTACT);
 	}
 	
-	public void testChangeToMessageBoxActivityWhenClickToAContact(){	
+	/**
+	 * Test if it change to MessageBoxActivity when click to a contact.
+	 */		
+	public void testClickToAContact(){	
 		// Check pre-conditions
 		solo.waitForActivity("MainScreen");
 		solo.assertCurrentActivity("MainScreen expected", MainScreenActivity.class);
@@ -96,10 +99,10 @@ public class ContactFragmentTest  extends ActivityInstrumentationTestCase2<MainS
 		ListView listContact = (ListView) ContactFragView.findViewById(R.id.contact_list);
 		View contactView = listContact.getChildAt(0);
 		
+		// Check if it change to MessageBoxActivity when click to a contact
 		solo.clickOnView(contactView);
 		solo.waitForActivity("MessageBoxActivity");
 		solo.sleep(200);
 		solo.assertCurrentActivity("MessageBoxActivity Expected", MessageBoxActivity.class);
-		
 	}	
 }
