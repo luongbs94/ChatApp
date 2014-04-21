@@ -323,7 +323,7 @@ public class IMService extends Service implements IAppManager, IUpdateData {
 
 	}
 
-	private void parseFriendInfo(String xml) {
+	public void parseFriendInfo(String xml) {
 		try {
 			SAXParser sp = SAXParserFactory.newInstance().newSAXParser();
 			sp.parse(new ByteArrayInputStream(xml.getBytes()), new XMLHandler(
