@@ -1325,6 +1325,7 @@ containing a value of this type.
         public static final int make_sure_username_and_password_correct=0x7f0a0021;
         public static final int not_connected_to_network=0x7f0a0020;
         public static final int not_connected_to_service=0x7f0a001f;
+        public static final int requset_sent=0x7f0a0023;
         public static final int signup_failed=0x7f0a001b;
         public static final int signup_fill_all_fields=0x7f0a001e;
         public static final int signup_successfull=0x7f0a0019;
