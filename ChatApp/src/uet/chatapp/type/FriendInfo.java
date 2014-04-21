@@ -17,4 +17,8 @@ public class FriendInfo{
 	public String userKey;
 	public String expire;
 	
+	public String getUsername(){
+		return userName;
+	}
+	
 };

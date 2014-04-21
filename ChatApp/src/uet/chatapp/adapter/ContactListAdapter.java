@@ -1,40 +1,33 @@
 package uet.chatapp.adapter;
 
 
-import java.util.ArrayList;
-
+import uet.chatapp.chatapp.R;
+import uet.chatapp.type.FriendInfo;
 import android.app.Activity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
-import uet.chatapp.chatapp.R;
-import uet.chatapp.model.ContactItem;
-import uet.chatapp.model.MessageItemInMessageBox;
 
 public class ContactListAdapter extends BaseAdapter {
 	
-	private ArrayList<ContactItem> list_contact;
+	private FriendInfo[] friends;
 	private Activity activity;
 	
-	public ContactListAdapter(Activity activity, ArrayList<ContactItem> list_contact){
+	public ContactListAdapter(Activity activity, FriendInfo[] friends){
 		this.activity = activity;
-		this.list_contact = list_contact ;
-	}
-	
-	public void add(ContactItem object) {
-		list_contact.add(0, object);
+		this.friends = friends ;
 	}
 	
 	@Override
 	public int getCount() {
-		return list_contact.size();
+		return friends.length;
 	}
 
 	@Override
-	public Object getItem(int position) {
-		return position;
+	public FriendInfo getItem(int position) {
+		return friends[position];
 	}
 
 	@Override
@@ -49,12 +42,12 @@ public class ContactListAdapter extends BaseAdapter {
 			view = inflater.inflate(R.layout.contact_list_row, null);
 		}
 		
-		TextView contact_name = (TextView) view.findViewById(R.id.contact_name);
+		TextView friendName = (TextView) view.findViewById(R.id.contact_name);
 	
-        ContactItem contact = list_contact.get(position);
+        FriendInfo friend = friends[position];
  
         // Setting all values in list view
-        contact_name.setText(contact.getContact_name());
+        friendName.setText(friend.userName);
         return view;
 	}
 	
