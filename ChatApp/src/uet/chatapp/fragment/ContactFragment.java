@@ -1,12 +1,15 @@
 package uet.chatapp.fragment;
 
 import uet.chatapp.activity.MessageBoxActivity;
+import uet.chatapp.activity.UnApprovedFriendList;
 import uet.chatapp.adapter.ContactListAdapter;
 import uet.chatapp.chatapp.R;
 import uet.chatapp.interfaces.IAppManager;
 import uet.chatapp.services.IMService;
 import uet.chatapp.tool.FriendController;
 import uet.chatapp.type.FriendInfo;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.ComponentName;
 import android.content.Context;
@@ -16,6 +19,7 @@ import android.content.ServiceConnection;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.NotificationCompat;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -59,7 +63,6 @@ public class ContactFragment extends Fragment {
 			public void onClick(View v) {
 				nameFriend = (EditText) rootView
 						.findViewById(R.id.contact_edit_text);
-				friendAdapter.notifyDataSetChanged();
 				addFriend();
 			}
 		});
@@ -99,6 +102,33 @@ public class ContactFragment extends Fragment {
 		}
 
 		if (unApprovedFriends != null) {
+			NotificationManager NM = (NotificationManager) getActivity()
+					.getSystemService (Context.NOTIFICATION_SERVICE);
+
+			if (unApprovedFriends.length > 0) {
+				String tmp = new String();
+				for (int j = 0; j < unApprovedFriends.length; j++) {
+					tmp = tmp.concat(unApprovedFriends[j].userName).concat(",");
+				}
+				NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(
+						getActivity()).setSmallIcon(R.drawable.stat_sample)
+						.setContentTitle(
+								getText(R.string.new_friend_request_exist));
+
+				Intent i = new Intent(getActivity(), UnApprovedFriendList.class);
+				i.putExtra(FriendInfo.FRIEND_LIST, tmp);
+
+				PendingIntent contentIntent = PendingIntent.getActivity(getActivity(),
+						0, i, 0);
+
+				mBuilder.setContentText("You have new friend request(s)");
+				
+				mBuilder.setContentIntent(contentIntent);
+
+				NM.notify(R.string.new_friend_request_exist, mBuilder.build());
+			} else {
+				NM.cancel(R.string.new_friend_request_exist);
+			}
 
 		}
 	}
@@ -166,8 +196,12 @@ public class ContactFragment extends Fragment {
 
 	public void addFriend() {
 		if (nameFriend.length() > 0) {
+			Log.d("Name Friend", nameFriend.getText().toString());
 			Thread thread = new Thread() {
 				public void run() {
+					if(imService == null){
+						Log.d("imService","imService is null");
+					}
 					imService.addNewFriendRequest(nameFriend.getText()
 							.toString());
 				}

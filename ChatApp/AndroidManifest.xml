@@ -35,6 +35,8 @@
         </activity>
         <activity android:name="uet.chatapp.activity.MessageBoxActivity" >
         </activity>
+        <activity android:name="uet.chatapp.activity.UnApprovedFriendList" >
+        </activity>
     </application>
 
 </manifest>
