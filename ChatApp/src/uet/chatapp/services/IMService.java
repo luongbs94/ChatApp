@@ -319,8 +319,12 @@ public class IMService extends Service implements IAppManager, IUpdateData {
 		"&action=" + "addNewFriend" +
 		"&friendUserName=" + friendUsername +
 		"&";
+		
+		Log.d("params", params);
 
 		String result = socketOperator.sendHttpRequest(params);		
+		
+		Log.d("result", result);
 		
 		return result;
 	}
@@ -380,9 +384,7 @@ public class IMService extends Service implements IAppManager, IUpdateData {
 			FriendInfo[] unApprovedFriends, String userKey) 
 	{
 		this.setUserKey(userKey);
-		//FriendController.	
 		MessageController.setMessagesInfo(messages);
-		//Log.i("MESSAGEIMSERVICE","messages.length="+messages.length);
 		
 		int i = 0;
 		while (i < messages.length){
