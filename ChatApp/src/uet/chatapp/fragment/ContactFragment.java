@@ -173,6 +173,7 @@ public class ContactFragment extends Fragment {
 				}
 			};
 			thread.start();
+			nameFriend.setText("");
 			Toast.makeText(getActivity(), R.string.requset_sent,
 					Toast.LENGTH_SHORT).show();
 		}
