@@ -37,7 +37,7 @@ import android.widget.Toast;
 public class MessageBoxActivity extends Activity {
 
 	private MessageBoxAdapter adapter;
-	private ListView lv;
+	private ListView messageListView;
 	private EditText messageText;
 	private Button sendMessageButton;
 	public String username;
@@ -69,10 +69,10 @@ public class MessageBoxActivity extends Activity {
 		sendMessageButton = (Button) findViewById(R.id.btn_send);
 		messageText = (EditText) findViewById(R.id.edit_message);		
 		messageText.requestFocus();		
-		lv = (ListView) findViewById(R.id.message_box_list);
+		messageListView = (ListView) findViewById(R.id.message_box_list);
 		adapter = new MessageBoxAdapter(getApplicationContext(),
 				R.layout.message_box_list_row);
-		lv.setAdapter(adapter);
+		messageListView.setAdapter(adapter);
 		
 		Bundle extras = this.getIntent().getExtras();
 		
@@ -224,6 +224,7 @@ public class MessageBoxActivity extends Activity {
 				}		
 			}
 		}
+		messageListView.setSelection(adapter.getCount() - 1);
 	}
 	
 	@Override
