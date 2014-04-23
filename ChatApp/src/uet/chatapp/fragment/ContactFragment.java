@@ -166,8 +166,8 @@ public class ContactFragment extends Fragment {
 			if (friends != null) {
 				updateData(friends, null);
 			}
-
-			getActivity().setTitle(imService.getUsername() + "'s friend list");
+			
+			getActivity().setTitle(imService.getUsername());
 			ownUsername = imService.getUsername();
 		}
 	};

@@ -84,12 +84,12 @@ public class LoginActivity extends Activity {
 			public void onClick(View v) {
 				if (imService == null) {
 					Toast.makeText(getApplicationContext(),
-							R.string.not_connected_to_service,
-							Toast.LENGTH_LONG).show();
+						R.string.not_connected_to_service,
+						Toast.LENGTH_LONG).show();
 				} else if (imService.isNetworkConnected() == false) {
 					Toast.makeText(getApplicationContext(),
-							R.string.not_connected_to_network,
-							Toast.LENGTH_LONG).show();
+						R.string.not_connected_to_network,
+						Toast.LENGTH_LONG).show();
 				} else if (login_username.length() > 0
 						&& login_password.length() > 0) {
 					Thread loginThread = new Thread() {
@@ -128,7 +128,8 @@ public class LoginActivity extends Activity {
 					};
 					loginThread.start();
 				}else{
-					Toast.makeText(getApplicationContext(),R.string.fill_both_username_and_password, Toast.LENGTH_LONG).show();
+					Toast.makeText(getApplicationContext(),R.string.fill_both_username_and_password,
+							Toast.LENGTH_LONG).show();
 				}
 			}
 		});
