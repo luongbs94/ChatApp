@@ -75,7 +75,10 @@ public class MessageBoxActivity extends Activity {
 		lv.setAdapter(adapter);
 		
 		Bundle extras = this.getIntent().getExtras();
-				
+		
+		if (extras == null) 
+			return;
+		
 		friend.userName = extras.getString(FriendInfo.USERNAME);
 		friend.ip = extras.getString(FriendInfo.IP);
 		friend.port = extras.getString(FriendInfo.PORT);

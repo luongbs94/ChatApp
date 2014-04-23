@@ -10,9 +10,11 @@ import uet.chatapp.chatapp.R;
 import com.robotium.solo.Solo;
 
 public class MainScreenActivityTest extends ActivityInstrumentationTestCase2<MainScreenActivity>{
-	public static final int TAG_STATUS_FRAGMENT_VIEW_PAGER_ID = 0;
-	public static final int TAG_MESSAGE_FRAGMENT_VIEW_PAGER_ID = 1;
-	public static final int TAG_CONTACT_FRAGMENT_VIEW_PAGER_ID = 2;
+	public static final int TAG_CONTACT_FRAGMENT_VIEW_PAGER_ID = 0;
+	public static final int TAG_STATUS_FRAGMENT_VIEW_PAGER_ID = 1;
+	public static final int TAG_MUSIC_FRAGMENT_VIEW_PAGER_ID = 2;
+	public static final int TAG_NEWS_FRAGMENT_VIEW_PAGER_ID = 3;
+
 
 	// Solo is a class in Robotium lib support android test
 	private Solo solo;
@@ -59,6 +61,13 @@ public class MainScreenActivityTest extends ActivityInstrumentationTestCase2<Mai
 		solo.assertCurrentActivity("Current activity is not MainActivity",
 				MainScreenActivity.class);
 		
+		// Click Contact-tab and check if it's viewed
+		boolean contactFragmentViewed = solo
+				.waitForFragmentByTag("android:switcher:" + viewPagerId + ":"
+						+ TAG_CONTACT_FRAGMENT_VIEW_PAGER_ID);
+		solo.clickOnText("Contact");
+		assertTrue(contactFragmentViewed);
+		
 		// Click Status-tab and check if it's viewed
 		boolean StatusFragmentViewed = solo
 				.waitForFragmentByTag("android:switcher:" + viewPagerId + ":"
@@ -66,18 +75,18 @@ public class MainScreenActivityTest extends ActivityInstrumentationTestCase2<Mai
 		solo.clickOnText("Status");
 		assertTrue(StatusFragmentViewed);
 
-		// Click Message-tab and check if it's viewed
-		boolean messageFragmentViewed = solo
+		// Click Music-tab and check if it's viewed
+		boolean musicFragmentViewed = solo
 				.waitForFragmentByTag("android:switcher:" + viewPagerId + ":"
-						+ TAG_MESSAGE_FRAGMENT_VIEW_PAGER_ID);
-		solo.clickOnText("Message");
-		assertTrue(messageFragmentViewed);		
+						+ TAG_MUSIC_FRAGMENT_VIEW_PAGER_ID);
+		solo.clickOnText("Music");
+		assertTrue(musicFragmentViewed);		
 		
-		// Click Contact-tab and check if it's viewed
-		boolean contactFragmentViewed = solo
+		// Click News-tab and check if it's viewed
+		boolean newsFragmentViewed = solo
 				.waitForFragmentByTag("android:switcher:" + viewPagerId + ":"
-						+ TAG_CONTACT_FRAGMENT_VIEW_PAGER_ID);
-		solo.clickOnText("Contact");
-		assertTrue(contactFragmentViewed);	
+						+ TAG_NEWS_FRAGMENT_VIEW_PAGER_ID);
+		solo.clickOnText("News");
+		assertTrue(newsFragmentViewed);		
 	}
 }
