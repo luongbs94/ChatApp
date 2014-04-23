@@ -4,13 +4,13 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import uet.chatapp.fragment.ContactFragment;
-import uet.chatapp.fragment.MessageFragment;
 import uet.chatapp.fragment.MusicFragment;
 import uet.chatapp.fragment.NewsFragment;
 import uet.chatapp.fragment.StatusFragment;
 
 public class TabsPagerAdapter extends FragmentPagerAdapter {
-
+	public static final int TAB_COUNT = 4;
+	
 	public TabsPagerAdapter(FragmentManager fm) {
 		super(fm);
 	}
@@ -20,18 +20,15 @@ public class TabsPagerAdapter extends FragmentPagerAdapter {
 
 		switch (index) {
 		case 0:
-			// Status fragment activity
-			return StatusFragment.getInstance();
-		case 1:
-			// Message fragment activity
-			return MessageFragment.getInstance();
-		case 2:
 			// Contact fragment activity
 			return ContactFragment.getInstance();
-		case 3:
+		case 1:
+			// Status fragment activity
+			return StatusFragment.getInstance();
+		case 2:
 			// Music fragment activity
 			return MusicFragment.getInstance();		
-		case 4:
+		case 3:
 			// News fragment activity
 			return NewsFragment.getInstance();
 		}
@@ -42,7 +39,7 @@ public class TabsPagerAdapter extends FragmentPagerAdapter {
 	@Override
 	public int getCount() {
 		// get item count - equal to number of tabs
-		return 5;
+		return TAB_COUNT;
 	}
 
 }
