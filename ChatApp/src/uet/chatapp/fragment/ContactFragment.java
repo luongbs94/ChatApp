@@ -212,4 +212,5 @@ public class ContactFragment extends Fragment {
 					Toast.LENGTH_SHORT).show();
 		}
 	}
+	//test
 }
