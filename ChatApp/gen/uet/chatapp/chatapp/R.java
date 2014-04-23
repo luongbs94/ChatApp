@@ -1263,14 +1263,16 @@ containing a value of this type.
         public static final int contact_list_row=0x7f03001a;
         public static final int fragment_contact=0x7f03001b;
         public static final int fragment_message=0x7f03001c;
-        public static final int fragment_status=0x7f03001d;
-        public static final int main_screen=0x7f03001e;
-        public static final int message_box_list_row=0x7f03001f;
-        public static final int message_list_row=0x7f030020;
-        public static final int signup=0x7f030021;
-        public static final int status_list_row=0x7f030022;
-        public static final int support_simple_spinner_dropdown_item=0x7f030023;
-        public static final int unapproved_friendlist=0x7f030024;
+        public static final int fragment_music=0x7f03001d;
+        public static final int fragment_news=0x7f03001e;
+        public static final int fragment_status=0x7f03001f;
+        public static final int main_screen=0x7f030020;
+        public static final int message_box_list_row=0x7f030021;
+        public static final int message_list_row=0x7f030022;
+        public static final int signup=0x7f030023;
+        public static final int status_list_row=0x7f030024;
+        public static final int support_simple_spinner_dropdown_item=0x7f030025;
+        public static final int unapproved_friendlist=0x7f030026;
     }
     public static final class menu {
         public static final int login=0x7f0c0000;
