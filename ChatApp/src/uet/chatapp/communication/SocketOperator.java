@@ -88,7 +88,6 @@ public class SocketOperator implements ISocketOperator
 			
 			out.println(params);
 			out.close();
-
 			BufferedReader in = new BufferedReader(
 					new InputStreamReader(
 							connection.getInputStream()));

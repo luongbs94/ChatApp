@@ -17,6 +17,7 @@ import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -33,7 +34,6 @@ public class LoginActivity extends Activity {
 	private IAppManager imService;
 
 	private ServiceConnection mConnection = new ServiceConnection() {
-
 		@Override
 		public void onServiceConnected(ComponentName name, IBinder service) {
 			imService = ((IMService.IMBinder) service).getService();
@@ -51,12 +51,12 @@ public class LoginActivity extends Activity {
 					Toast.LENGTH_SHORT).show();
 		}
 	};
-
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		getWindow().requestFeature(Window.FEATURE_ACTION_BAR);
-		getActionBar().hide();
+		//this.getActionBar().hide();
 
 		startService(new Intent(LoginActivity.this, IMService.class));
 
@@ -147,5 +147,6 @@ public class LoginActivity extends Activity {
 
 		super.onResume();
 	}
+	
 
 }
