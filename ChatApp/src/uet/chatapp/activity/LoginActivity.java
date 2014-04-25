@@ -56,7 +56,7 @@ public class LoginActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		getWindow().requestFeature(Window.FEATURE_ACTION_BAR);
-		getActionBar().hide();
+	//	getActionBar().hide();
 
 		startService(new Intent(LoginActivity.this, IMService.class));
 
