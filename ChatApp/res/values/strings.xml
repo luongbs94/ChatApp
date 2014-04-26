@@ -23,4 +23,7 @@
 	<string name="not_connected_to_network">Not connected to network</string>
 	<string name="make_sure_username_and_password_correct">Make sure user name and password correct</string>
 	<string name="fill_both_username_and_password">Please fill both username and password</string>
+	<string name= "requset_sent">Request friend have sent</string>
+	<string name="new_friend_request_exist">New Friend Request Exist</string>
+	<string name="response_friend_request_sent">Response friend request sent</string>
 </resources>
