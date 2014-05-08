@@ -49,7 +49,7 @@ public class SignUpActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		getWindow().requestFeature(Window.FEATURE_ACTION_BAR);
-	//	getActionBar().hide();
+	//getActionBar().hide();
 		setContentView(R.layout.signup);
 
 		signup_username = (EditText) findViewById(R.id.signup_username);
