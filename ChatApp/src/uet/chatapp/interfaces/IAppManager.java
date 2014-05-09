@@ -17,4 +17,5 @@ public interface IAppManager {
 	public String addNewFriendRequest(String friendUsername);
 	public String sendFriendsReqsResponse(String approvedFriendNames,
 			String discardedFriendNames);
+	public String postStatus(String username, String status) throws UnsupportedEncodingException;;
 }

@@ -27,6 +27,7 @@ import uet.chatapp.tool.MessageController;
 import uet.chatapp.tool.XMLHandler;
 import uet.chatapp.type.FriendInfo;
 import uet.chatapp.type.MessageInfo;
+import uet.chatapp.type.StatusInfo;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.Service;
@@ -45,11 +46,14 @@ public class IMService extends Service implements IAppManager, IUpdateData {
 	public static final String TAKE_MESSAGE = "Take_Message";
 	public static final String FRIEND_LIST_UPDATED = "Take Friend List";
 	public static final String MESSAGE_LIST_UPDATED = "Take Message List";
+	public static final String STATUS_LIST_UPDATED = "Take Status List";
+	
 	public ConnectivityManager conManager = null; 
 	private final int UPDATE_TIME_PERIOD = 15000;
 	private String rawFriendList = new String();
 	private String rawMessageList = new String();
-
+	private String rawStatusList = new String();
+	
 	ISocketOperator socketOperator = new SocketOperator(this);
 
 	private final IBinder mBinder = new IMBinder();
@@ -156,7 +160,29 @@ public class IMService extends Service implements IAppManager, IUpdateData {
 		Log.i("PARAMS", params);
 		return socketOperator.sendHttpRequest(params);		
 	}
+	
+	public String postStatus(String username, String status) throws UnsupportedEncodingException
+	{
+		String params = "username="+ URLEncoder.encode(this.username,"UTF-8") +
+				"&password="+ URLEncoder.encode(this.password,"UTF-8") +
+				"&status="+ URLEncoder.encode(status,"UTF-8") +
+				"&action="  + URLEncoder.encode("postStatus","UTF-8")+
+				"&";		
+		Log.i("PARAMS", params);
+		String result = socketOperator.sendHttpRequest(params);
+		Log.i("result", result);
+		return result;
+	}
 
+	private String getStatusList() throws UnsupportedEncodingException 	{		
+		// after authentication, server replies with friendList xml
+		
+		rawStatusList = socketOperator.sendHttpRequest(getAuthenticateUserParams(username, password));
+		 if (rawFriendList != null) {
+			 this.parseStatusInfo(rawStatusList);
+		 }
+		 return rawStatusList;
+	}
 	
 	private String getFriendList() throws UnsupportedEncodingException 	{		
 		// after authentication, server replies with friendList xml
@@ -204,8 +230,12 @@ public class IMService extends Service implements IAppManager, IUpdateData {
 						// sending friend list 
 						Intent i = new Intent(FRIEND_LIST_UPDATED);
 						Intent i2 = new Intent(MESSAGE_LIST_UPDATED);
+						Intent i3 = new Intent(STATUS_LIST_UPDATED);
+						
 						String tmp = IMService.this.getFriendList();
 						String tmp2 = IMService.this.getMessageList();
+						String tmp3 = IMService.this.getStatusList();
+						
 						if (tmp != null) {
 							i.putExtra(FriendInfo.FRIEND_LIST, tmp);
 							sendBroadcast(i);	
@@ -214,6 +244,12 @@ public class IMService extends Service implements IAppManager, IUpdateData {
 						if (tmp2 != null) {
 							i2.putExtra(MessageInfo.MESSAGE_LIST, tmp2);
 							sendBroadcast(i2);	
+							Log.i("friend list broadcast sent ", "");
+						}
+						
+						if (tmp3 != null) {
+							i3.putExtra(StatusInfo.STATUS_LIST, tmp3);
+							sendBroadcast(i3);	
 							Log.i("friend list broadcast sent ", "");
 						}
 						}
@@ -345,6 +381,24 @@ public class IMService extends Service implements IAppManager, IUpdateData {
 		
 	} 
 	
+private void parseStatusInfo(String xml)
+	{			
+		try 
+		{
+			SAXParser sp = SAXParserFactory.newInstance().newSAXParser();
+			sp.parse(new ByteArrayInputStream(xml.getBytes()), new XMLHandler(IMService.this));		
+		} 
+		catch (ParserConfigurationException e) {			
+			e.printStackTrace();
+		}
+		catch (SAXException e) {			
+			e.printStackTrace();
+		} 
+		catch (IOException e) {			
+			e.printStackTrace();
+		}	
+	}	
+	
 	private void parseFriendInfo(String xml)
 	{			
 		try 
@@ -362,6 +416,7 @@ public class IMService extends Service implements IAppManager, IUpdateData {
 			e.printStackTrace();
 		}	
 	}
+	
 	private void parseMessageInfo(String xml)
 	{			
 		try 
