@@ -11,29 +11,26 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 import uet.chatapp.chatapp.R;
 import uet.chatapp.model.StatusItem;
+import uet.chatapp.type.StatusInfo;
 
 public class StatusListAdapter extends BaseAdapter {
 	
-	private ArrayList<StatusItem> list_status;
+	private StatusInfo[] list_status;
 	private Activity activity;
 	
-	public StatusListAdapter(Activity activity, ArrayList<StatusItem> list_status){
+	public StatusListAdapter(Activity activity, StatusInfo[] list_status){
 		this.activity = activity;
 		this.list_status = list_status ;
 	}
 
-	public void add(StatusItem obj){
-		list_status.add(0, obj);
-	}
-	
 	@Override
 	public int getCount() {
-		return list_status.size();
+		return list_status.length;
 	}
 
 	@Override
 	public Object getItem(int position) {
-		return list_status.get(position);
+		return list_status[position];
 	}
 
 	@Override
@@ -52,12 +49,12 @@ public class StatusListAdapter extends BaseAdapter {
 	    TextView status_content = (TextView) view.findViewById(R.id.status_content);
 	    TextView time = (TextView) view.findViewById(R.id.status_time);
 	
-        StatusItem status = list_status.get(position);
+        StatusInfo status = list_status[position];
  
         // Setting all values in list view
-        friend_name.setText(status.getFriend_name());
-        status_content.setText(status.getstatus_content());
-        time.setText(status.gettime());
+        friend_name.setText(status.getName());
+        status_content.setText(status.getText());
+     //   time.setText(status.gettime());
         return view;
 	}
 	

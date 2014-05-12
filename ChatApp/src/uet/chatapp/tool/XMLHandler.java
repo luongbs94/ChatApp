@@ -9,6 +9,7 @@ import org.xml.sax.helpers.DefaultHandler;
 import uet.chatapp.interfaces.IUpdateData;
 import uet.chatapp.type.FriendInfo;
 import uet.chatapp.type.MessageInfo;
+import uet.chatapp.type.StatusInfo;
 import uet.chatapp.type.Status;
 import android.util.Log;
 
@@ -25,13 +26,17 @@ public class XMLHandler extends DefaultHandler {
 	private Vector<FriendInfo> mFriends = new Vector<FriendInfo>();
 	private Vector<FriendInfo> mOnlineFriends = new Vector<FriendInfo>();
 	private Vector<FriendInfo> mUnapprovedFriends = new Vector<FriendInfo>();
-
+	
 	private Vector<MessageInfo> mUnreadMessages = new Vector<MessageInfo>();
 
+	private Vector<StatusInfo> mStatuses = new Vector<StatusInfo>();
+	
 	public void endDocument() throws SAXException {
 		FriendInfo[] friends = new FriendInfo[mFriends.size()
 				+ mOnlineFriends.size()];
 		MessageInfo[] messages = new MessageInfo[mUnreadMessages.size()];
+
+		StatusInfo[] statuses = new StatusInfo[mStatuses.size()];
 
 		int onlineFriendCount = mOnlineFriends.size();
 		for (int i = 0; i < onlineFriendCount; i++) {
@@ -57,7 +62,12 @@ public class XMLHandler extends DefaultHandler {
 			Log.i("MessageLOG", "i=" + i);
 		}
 
-		this.updater.updateData(messages, friends, unApprovedFriends, userKey);
+		int Statuscount = mStatuses.size();
+		for (int i=0; i<Statuscount; i++){
+			statuses[i] = mStatuses.get(i);
+		}
+		
+		this.updater.updateData(messages, friends, unApprovedFriends, statuses, userKey);
 		super.endDocument();
 	}
 
@@ -92,7 +102,14 @@ public class XMLHandler extends DefaultHandler {
 			Log.i("MessageLOG", message.userid + message.sendt
 					+ message.messagetext);
 			mUnreadMessages.add(message);
+		} else if (localName == "status"){
+			StatusInfo status = new StatusInfo();
+			status.userMame = attributes.getValue(StatusInfo.USERNAME);
+			status.text = attributes.getValue(StatusInfo.STATUSTEXT);
+	//		Log.i("statustext", status.text);
+			mStatuses.add(status);
 		}
+			
 		super.startElement(uri, localName, name, attributes);
 	}
 
@@ -101,6 +118,7 @@ public class XMLHandler extends DefaultHandler {
 		this.mFriends.clear();
 		this.mOnlineFriends.clear();
 		this.mUnreadMessages.clear();
+		this.mStatuses.clear();
 		super.startDocument();
 	}
 

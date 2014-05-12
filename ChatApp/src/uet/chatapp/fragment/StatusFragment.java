@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import android.support.v4.app.Fragment;
 import android.text.format.Time;
 import android.util.Log;
+import android.content.BroadcastReceiver;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
@@ -21,19 +22,24 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
+import uet.chatapp.adapter.ContactListAdapter;
 import uet.chatapp.adapter.StatusListAdapter;
 import uet.chatapp.chatapp.R;
+import uet.chatapp.fragment.ContactFragment.MessageReceiver;
 import uet.chatapp.interfaces.IAppManager;
 import uet.chatapp.model.StatusItem;
 import uet.chatapp.services.IMService;
+import uet.chatapp.tool.StatusController;
+import uet.chatapp.type.FriendInfo;
+import uet.chatapp.type.StatusInfo;;
 
 public class StatusFragment extends Fragment  {
 	private ArrayList<StatusItem> status;
 	private IAppManager imService;
 	ListView listView;
 	StatusListAdapter adapter;
+	private static String statuspost;
 	private static StatusFragment instance = null;
-
 	public StatusFragment(){}
 
 	public static StatusFragment getInstance(){
@@ -53,8 +59,11 @@ private ServiceConnection mConnection = new ServiceConnection() {
         }
     };
     
+    public MessageReceiver messageReceiver = new MessageReceiver();
+    
 	@Override
 	public void onPause() {
+		getActivity().unregisterReceiver(messageReceiver);
 		getActivity().unbindService(mConnection);
 		super.onPause();
 	}
@@ -65,6 +74,11 @@ private ServiceConnection mConnection = new ServiceConnection() {
 		getActivity().bindService(
 				new Intent(this.getActivity(), IMService.class), mConnection,
 				Context.BIND_AUTO_CREATE);
+		
+		IntentFilter i = new IntentFilter();
+		i.addAction(IMService.STATUS_LIST_UPDATED);
+
+		getActivity().registerReceiver(messageReceiver, i);
 	}    
 	
 	@Override
@@ -78,7 +92,7 @@ private ServiceConnection mConnection = new ServiceConnection() {
         postButton.setOnClickListener(new Button.OnClickListener() {
            public void onClick(View v) {
 				EditText editText = (EditText) rootView.findViewById(R.id.status_edit_text);
-				String status = editText.getText().toString();
+				statuspost = editText.getText().toString();
 				Time today = new Time(Time.getCurrentTimezone());
 				today.setToNow();
 			
@@ -91,7 +105,7 @@ private ServiceConnection mConnection = new ServiceConnection() {
 						Thread thread = new Thread(){					
 							public void run() {
 								try {
-									imService.postStatus(imService.getUsername(), "danh che de");
+									imService.postStatus(imService.getUsername(), statuspost);
 									
 								} catch (UnsupportedEncodingException e) {
 									e.printStackTrace();
@@ -102,9 +116,7 @@ private ServiceConnection mConnection = new ServiceConnection() {
 					}
 				};
 				thread.start();
-				adapter.add(new StatusItem("minh", editText.getText().toString(), today.format3339(false).substring(0, 19)));
 				adapter.notifyDataSetChanged();
-				
 				editText.setText("");        	   
            }
         });      
@@ -116,16 +128,33 @@ private ServiceConnection mConnection = new ServiceConnection() {
     public void onActivityCreated(Bundle savedInstanceState) {  
         super.onActivityCreated(savedInstanceState);  
         
-        if (adapter == null){
-            //Hard code: add status to list 
-            status = new ArrayList<StatusItem>();
-        	status.add(new StatusItem("luong", "Hello. Today I am happy", "12:00"));
-        	status.add(new StatusItem("long", "good afternoon. Today I am worry", "12:00"));
-        	status.add(new StatusItem("hao", "hi. Have a sweet dream ", "12:00")); 
-               
-            adapter = new StatusListAdapter(this.getActivity(), status); 
-        }
         listView = (ListView) getActivity().findViewById(R.id.status_list);  
         listView.setAdapter(adapter);            	
     }  
+    
+	public void updateStatus(StatusInfo[] statuses) {
+		if (statuses != null) {
+
+			adapter = new StatusListAdapter(this.getActivity(), statuses);
+			listView.setAdapter(adapter);
+		} 
+	}	
+	
+    public class MessageReceiver extends BroadcastReceiver {
+
+		@Override
+		public void onReceive(Context context, Intent intent) {
+			Log.i("Broadcast receiver ", "received a status");
+			Bundle extras = intent.getExtras();
+			if (extras != null) {
+				String action = intent.getAction();
+				if (action.equals(IMService.STATUS_LIST_UPDATED)) {
+					updateStatus(StatusController.getStatusesInfo());
+					Log.i("yyyyyyyyyyyyy",StatusController.getStatusesInfo()[15].text);
+				}
+			}
+		}
+	}
+
+    
 }

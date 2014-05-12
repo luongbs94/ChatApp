@@ -24,6 +24,7 @@ import uet.chatapp.interfaces.IUpdateData;
 import uet.chatapp.tool.FriendController;
 import uet.chatapp.tool.LocalStorageHandler;
 import uet.chatapp.tool.MessageController;
+import uet.chatapp.tool.StatusController;
 import uet.chatapp.tool.XMLHandler;
 import uet.chatapp.type.FriendInfo;
 import uet.chatapp.type.MessageInfo;
@@ -226,8 +227,6 @@ public class IMService extends Service implements IAppManager, IUpdateData {
 				public void run() 
 				{
 					try {					
-						//rawFriendList = IMService.this.getFriendList();
-						// sending friend list 
 						Intent i = new Intent(FRIEND_LIST_UPDATED);
 						Intent i2 = new Intent(MESSAGE_LIST_UPDATED);
 						Intent i3 = new Intent(STATUS_LIST_UPDATED);
@@ -239,18 +238,15 @@ public class IMService extends Service implements IAppManager, IUpdateData {
 						if (tmp != null) {
 							i.putExtra(FriendInfo.FRIEND_LIST, tmp);
 							sendBroadcast(i);	
-							Log.i("friend list broadcast sent ", "");
 						
 						if (tmp2 != null) {
 							i2.putExtra(MessageInfo.MESSAGE_LIST, tmp2);
-							sendBroadcast(i2);	
-							Log.i("friend list broadcast sent ", "");
-						}
+							sendBroadcast(i2);		}
 						
 						if (tmp3 != null) {
 							i3.putExtra(StatusInfo.STATUS_LIST, tmp3);
 							sendBroadcast(i3);	
-							Log.i("friend list broadcast sent ", "");
+							
 						}
 						}
 						else {
@@ -436,7 +432,7 @@ private void parseStatusInfo(String xml)
 	}
 
 	public void updateData(MessageInfo[] messages,FriendInfo[] friends,
-			FriendInfo[] unApprovedFriends, String userKey) 
+			FriendInfo[] unApprovedFriends, StatusInfo[] statuses, String userKey) 
 	{
 		this.setUserKey(userKey);
 		MessageController.setMessagesInfo(messages);
@@ -444,11 +440,16 @@ private void parseStatusInfo(String xml)
 		int i = 0;
 		while (i < messages.length){
 			messageReceived(messages[i].userid,messages[i].messagetext);
-			//appManager.messageReceived(messages[i].userid,messages[i].messagetext);
 			i++;
 		}
 				
 		FriendController.setFriendsInfo(friends);
-		FriendController.setUnapprovedFriendsInfo(unApprovedFriends);		
+		FriendController.setUnapprovedFriendsInfo(unApprovedFriends);	
+		
+		StatusController.setStatusesInfo(statuses);
+		Intent tmp = new Intent(STATUS_LIST_UPDATED);			
+		sendBroadcast(tmp);
+		Log.i("XXXXXXXXXXXXXXX",StatusController.getStatusesInfo()[0].text);
+		
 	}	
 }

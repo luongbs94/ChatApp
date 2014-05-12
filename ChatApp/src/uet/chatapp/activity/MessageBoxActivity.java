@@ -210,6 +210,7 @@ public class MessageBoxActivity extends Activity {
 			}			
 		}		
 	};
+	
 	private MessageReceiver messageReceiver = new MessageReceiver();
 	
 	public  void appendToMessageHistory(String username, String message) {
