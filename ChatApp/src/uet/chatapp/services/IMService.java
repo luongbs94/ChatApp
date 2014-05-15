@@ -29,6 +29,7 @@ import uet.chatapp.tool.XMLHandler;
 import uet.chatapp.type.FriendInfo;
 import uet.chatapp.type.MessageInfo;
 import uet.chatapp.type.StatusInfo;
+import android.R.array;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.Service;
