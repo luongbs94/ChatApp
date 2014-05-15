@@ -105,7 +105,9 @@ private ServiceConnection mConnection = new ServiceConnection() {
 						Thread thread = new Thread(){					
 							public void run() {
 								try {
-									imService.postStatus(imService.getUsername(), statuspost);
+									Time today = new Time(Time.getCurrentTimezone());
+									today.setToNow();
+									imService.postStatus(imService.getUsername(), statuspost, today.format3339(false).substring(0, 19));
 									
 								} catch (UnsupportedEncodingException e) {
 									e.printStackTrace();
@@ -150,7 +152,7 @@ private ServiceConnection mConnection = new ServiceConnection() {
 				String action = intent.getAction();
 				if (action.equals(IMService.STATUS_LIST_UPDATED)) {
 					updateStatus(StatusController.getStatusesInfo());
-					Log.i("yyyyyyyyyyyyy",StatusController.getStatusesInfo()[15].text);
+					Log.i("yyyyyyyyyyyyy",StatusController.getStatusesInfo()[0].text);
 				}
 			}
 		}

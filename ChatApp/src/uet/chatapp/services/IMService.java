@@ -162,11 +162,12 @@ public class IMService extends Service implements IAppManager, IUpdateData {
 		return socketOperator.sendHttpRequest(params);		
 	}
 	
-	public String postStatus(String username, String status) throws UnsupportedEncodingException
+	public String postStatus(String username, String status, String time) throws UnsupportedEncodingException
 	{
 		String params = "username="+ URLEncoder.encode(this.username,"UTF-8") +
 				"&password="+ URLEncoder.encode(this.password,"UTF-8") +
 				"&status="+ URLEncoder.encode(status,"UTF-8") +
+				"&time="+ URLEncoder.encode(time,"UTF-8") +
 				"&action="  + URLEncoder.encode("postStatus","UTF-8")+
 				"&";		
 		Log.i("PARAMS", params);

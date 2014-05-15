@@ -20,7 +20,7 @@ import android.util.Log;
 
 public class SocketOperator implements ISocketOperator
 {
-	private static final String AUTHENTICATION_SERVER_ADDRESS = "http://luongbs94.esy.es/chat/index3.php/"; 
+	private static final String AUTHENTICATION_SERVER_ADDRESS = "http://luongbs94.esy.es/chat/index5.php/"; 
 	
 	private int listeningPort = 0;
 	

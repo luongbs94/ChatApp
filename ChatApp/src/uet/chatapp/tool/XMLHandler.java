@@ -106,7 +106,7 @@ public class XMLHandler extends DefaultHandler {
 			StatusInfo status = new StatusInfo();
 			status.userMame = attributes.getValue(StatusInfo.USERNAME);
 			status.text = attributes.getValue(StatusInfo.STATUSTEXT);
-	//		Log.i("statustext", status.text);
+			status.time = attributes.getValue(StatusInfo.TIME_POST);
 			mStatuses.add(status);
 		}
 			

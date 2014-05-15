@@ -54,7 +54,7 @@ public class StatusListAdapter extends BaseAdapter {
         // Setting all values in list view
         friend_name.setText(status.getName());
         status_content.setText(status.getText());
-     //   time.setText(status.gettime());
+        time.setText(status.getTime());
         return view;
 	}
 	
