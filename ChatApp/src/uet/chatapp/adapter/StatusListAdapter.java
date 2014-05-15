@@ -43,12 +43,13 @@ public class StatusListAdapter extends BaseAdapter {
 		
 		TextView friend_name = (TextView) view.findViewById(R.id.status_friend_name);
 	    TextView status_content = (TextView) view.findViewById(R.id.status_content);
-	
+	    TextView time = (TextView) view.findViewById(R.id.status_time);
         StatusInfo status = list_status[position];
  
         // Setting all values in list view
         friend_name.setText(status.getName());
         status_content.setText(status.getText());
+        time.setText(status.getTime());
         return view;
 	}
 	

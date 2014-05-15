@@ -97,7 +97,9 @@ private ServiceConnection mConnection = new ServiceConnection() {
 						Thread thread = new Thread(){					
 							public void run() {
 								try {
-									imService.postStatus(imService.getUsername(), statuspost);
+									Time today = new Time(Time.getCurrentTimezone());
+									today.setToNow();
+									imService.postStatus(imService.getUsername(), statuspost, today.format3339(false).substring(0, 19));
 									
 								} catch (UnsupportedEncodingException e) {
 									e.printStackTrace();
@@ -123,10 +125,19 @@ private ServiceConnection mConnection = new ServiceConnection() {
         listView = (ListView) getActivity().findViewById(R.id.status_list);  
         listView.setAdapter(adapter);            	
     }  
+        
+    
     
 	public void updateStatus(StatusInfo[] statuses) {
 		if (statuses != null) {
-
+			for (int i=0;i<statuses.length-1;i++)
+				for (int j=i+1;j<statuses.length;j++)
+					if (statuses[j].time.compareTo(statuses[i].time)==1){
+						StatusInfo tmp = statuses[i];
+						statuses[i] = statuses[j];
+						statuses[j] = tmp;
+					}
+			
 			adapter = new StatusListAdapter(this.getActivity(), statuses);
 			listView.setAdapter(adapter);
 		} 
@@ -142,7 +153,7 @@ private ServiceConnection mConnection = new ServiceConnection() {
 				String action = intent.getAction();
 				if (action.equals(IMService.STATUS_LIST_UPDATED)) {
 					updateStatus(StatusController.getStatusesInfo());
-					Log.i("yyyyyyyyyyyyy",StatusController.getStatusesInfo()[15].text);
+					Log.i("yyyyyyyyyyyyy",StatusController.getStatusesInfo()[0].text);
 				}
 			}
 		}
