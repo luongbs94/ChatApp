@@ -2,8 +2,6 @@
 <resources>
 
     <string name="app_name">ChatApp</string>
-    <string name="hello_world">Hello world!</string>
-    <string name="action_settings">Settings</string>
 	<string name="text">text</string>
  	<string name="time">time</string>
 	<string name="status">hello</string>
@@ -26,4 +24,17 @@
 	<string name= "requset_sent">Request friend have sent</string>
 	<string name="new_friend_request_exist">New Friend Request Exist</string>
 	<string name="response_friend_request_sent">Response friend request sent</string>
+	<string name="username">Username</string>
+	<string name="password">Password</string>
+	<string name="login">Login</string>
+	<string name="remember">Remember me</string>
+	<string name="keep_loged_in">Keep logged in</string>
+	<string name="signup">SignUp</string>
+	<string name="forgot_pass">Forgot your password ?</string>
+	<string name="create_account">Create an account</string>
+	<string name="confirm_password">Confirm password</string>
+	<string name="sign_in">Sign in</string>
+	<string name="submit">Submit</string>
+	<string name="login_slogan">Login to your account</string>
+														
 </resources>
