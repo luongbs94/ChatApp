@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">ChatApp</string>
+	<string name="text">text</string>
+ 	<string name="time">time</string>
+	<string name="status">hello</string>
+	<string name="btn_post">post</string>
+	<string name="btn_add_friend">Add</string>
+	<string name="status_hint">What\'s on your mind?</string>
+	<string name="enter_message">Enter message</string>
+	<string name="btn_send">Send</string>
+	<string name="local_service_stopped">Local service stopped </string>
+	<string name="signup_successfull">Signup successfully</string>
+	<string name="signup_user_crash">Signup user crash</string>
+	<string name="signup_failed">Signup failed</string>
+	<string name="username_and_password_length_short">Username and password too short</string>
+	<string name="signup_type_same_password_in_password_fields">Please confirm password correctly</string>
+	<string name="signup_fill_all_fields">Please fill all fields</string>	
+	<string name="not_connected_to_service">Not connected to service</string>
+	<string name="not_connected_to_network">Not connected to network</string>
+	<string name="make_sure_username_and_password_correct">Make sure user name and password correct</string>
+	<string name="fill_both_username_and_password">Please fill both username and password</string>
+	<string name= "requset_sent">Request friend have sent</string>
+	<string name="new_friend_request_exist">New Friend Request Exist</string>
+	<string name="response_friend_request_sent">Response friend request sent</string>
+	<string name="username">Username</string>
+	<string name="password">Password</string>
+	<string name="login">Login</string>
+	<string name="remember">Remember me</string>
+	<string name="keep_loged_in">Keep logged in</string>
+	<string name="signup">SignUp</string>
+	<string name="forgot_pass">Forgot your password ?</string>
+	<string name="create_account">Create an account</string>
+	<string name="confirm_password">Confirm password</string>
+	<string name="sign_in">Sign in</string>
+	<string name="submit">Submit</string>
+	<string name="login_slogan">Login to your account</string>
+														
+</resources>
