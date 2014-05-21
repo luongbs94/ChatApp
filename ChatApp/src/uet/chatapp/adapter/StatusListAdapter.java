@@ -1,8 +1,5 @@
 package uet.chatapp.adapter;
 
-
-import java.util.ArrayList;
-
 import android.app.Activity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,7 +7,6 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 import uet.chatapp.chatapp.R;
-import uet.chatapp.model.StatusItem;
 import uet.chatapp.type.StatusInfo;
 
 public class StatusListAdapter extends BaseAdapter {
@@ -48,7 +44,6 @@ public class StatusListAdapter extends BaseAdapter {
 		TextView friend_name = (TextView) view.findViewById(R.id.status_friend_name);
 	    TextView status_content = (TextView) view.findViewById(R.id.status_content);
 	    TextView time = (TextView) view.findViewById(R.id.status_time);
-	
         StatusInfo status = list_status[position];
  
         // Setting all values in list view

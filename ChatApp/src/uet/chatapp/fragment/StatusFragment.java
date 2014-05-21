@@ -2,8 +2,6 @@ package uet.chatapp.fragment;
 
 
 import java.io.UnsupportedEncodingException;
-import java.util.ArrayList;
-
 import android.support.v4.app.Fragment;
 import android.text.format.Time;
 import android.util.Log;
@@ -21,20 +19,14 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.Toast;
-import uet.chatapp.adapter.ContactListAdapter;
 import uet.chatapp.adapter.StatusListAdapter;
 import uet.chatapp.chatapp.R;
-import uet.chatapp.fragment.ContactFragment.MessageReceiver;
 import uet.chatapp.interfaces.IAppManager;
-import uet.chatapp.model.StatusItem;
 import uet.chatapp.services.IMService;
 import uet.chatapp.tool.StatusController;
-import uet.chatapp.type.FriendInfo;
 import uet.chatapp.type.StatusInfo;;
 
 public class StatusFragment extends Fragment  {
-	private ArrayList<StatusItem> status;
 	private IAppManager imService;
 	ListView listView;
 	StatusListAdapter adapter;

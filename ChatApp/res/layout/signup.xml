@@ -2,7 +2,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="#FFFFFF"
     android:gravity="center"
     android:orientation="vertical" >
 
@@ -11,6 +10,7 @@
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_marginBottom="20dp"
+        android:contentDescription="@string/app_name"
         android:background="@drawable/chatapp" />
 
     <TextView
@@ -18,9 +18,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="15dp"
-        android:text="Creat an account"
+        android:text="@string/create_account"
         android:textColor="#575757"
-        android:textSize="25dp" />
+        android:textSize="25sp" />
 
     <LinearLayout
         android:id="@+id/signup_username_field"
@@ -43,7 +43,7 @@
             android:layout_marginRight="10sp"
             android:layout_marginTop="5sp"
             android:background="#FFFFFF"
-            android:hint="Username"
+            android:hint="@string/username"
             android:inputType="textEmailAddress"
             android:textColor="#575757"
             android:textCursorDrawable="@null"
@@ -71,7 +71,7 @@
             android:layout_marginRight="10sp"
             android:layout_marginTop="5sp"
             android:background="#FFFFFF"
-            android:hint="Password"
+            android:hint="@string/password"
             android:inputType="textPassword"
             android:textColor="#575757"
             android:textCursorDrawable="@null"
@@ -99,7 +99,7 @@
             android:layout_marginRight="10sp"
             android:layout_marginTop="5sp"
             android:background="#FFFFFF"
-            android:hint="Confirm password"
+            android:hint="@string/confirm_password"
             android:inputType="textPassword"
             android:textColor="#575757"
             android:textCursorDrawable="@null"
@@ -125,7 +125,7 @@
             android:layout_weight="1"
             android:background="@drawable/background1"
             android:gravity="center"
-            android:text="Sign up"
+            android:text="@string/signup"
             android:textColor="#FFFFFF"
             android:textSize="17sp" />
 
@@ -137,7 +137,7 @@
             android:layout_weight="1"
             android:background="@drawable/background1"
             android:gravity="center"
-            android:text="Sign in"
+            android:text="@string/sign_in"
             android:textColor="#00CC33"
             android:textSize="17sp" />
     </LinearLayout>
@@ -150,7 +150,7 @@
         android:layout_marginTop="10dp"
         android:background="#FFFFFF"
         android:gravity="center"
-        android:text="Forgot your your password ? "
+        android:text="@string/forgot_pass"
         android:textColor="#888888"
         android:textSize="14sp" />
 

@@ -15,30 +15,6 @@ public final class R {
         public static final int abc_slide_in_top=0x7f040003;
         public static final int abc_slide_out_bottom=0x7f040004;
         public static final int abc_slide_out_top=0x7f040005;
-        public static final int cycle_7=0x7f040006;
-        public static final int fade=0x7f040007;
-        public static final int hold=0x7f040008;
-        public static final int hyperspace_in=0x7f040009;
-        public static final int hyperspace_out=0x7f04000a;
-        public static final int layout_animation_row_left_slide=0x7f04000b;
-        public static final int layout_animation_row_right_slide=0x7f04000c;
-        public static final int layout_animation_table=0x7f04000d;
-        public static final int layout_bottom_to_top_slide=0x7f04000e;
-        public static final int layout_grid_fade=0x7f04000f;
-        public static final int layout_grid_inverse_fade=0x7f040010;
-        public static final int layout_random_fade=0x7f040011;
-        public static final int layout_wave_scale=0x7f040012;
-        public static final int push_left_in=0x7f040013;
-        public static final int push_left_out=0x7f040014;
-        public static final int push_up_in=0x7f040015;
-        public static final int push_up_out=0x7f040016;
-        public static final int shake=0x7f040017;
-        public static final int slide_left=0x7f040018;
-        public static final int slide_right=0x7f040019;
-        public static final int slide_top_to_bottom=0x7f04001a;
-        public static final int wave_scale=0x7f04001b;
-        public static final int zoom_enter=0x7f04001c;
-        public static final int zoom_exit=0x7f04001d;
     }
     public static final class attr {
         /**  Custom divider drawable to use for elements in the action bar. 
@@ -907,15 +883,6 @@ containing a value of this type.
  Minimum width of the search view text entry area. 
          */
         public static final int abc_search_view_text_min_width=0x7f08000c;
-        /**  Default screen margins, per the Android Design guidelines. 
-
-         Example customization of dimensions originally defined in res/values/dimens.xml
-         (such as screen margins) for screens with more than 820dp of available width. This
-         would include 7" and 10" devices in landscape (~960dp and ~1280dp respectively).
-    
-         */
-        public static final int activity_horizontal_margin=0x7f080011;
-        public static final int activity_vertical_margin=0x7f080012;
     }
     public static final class drawable {
         public static final int abc_ab_bottom_solid_dark_holo=0x7f020000;
@@ -1009,20 +976,11 @@ containing a value of this type.
         public static final int bubble_green=0x7f020058;
         public static final int bubble_yellow=0x7f020059;
         public static final int chatapp=0x7f02005a;
-        public static final int gradient_bg=0x7f02005b;
-        public static final int gradient_bg_hover=0x7f02005c;
-        public static final int haivl=0x7f02005d;
-        public static final int hn24h=0x7f02005e;
-        public static final int ic_launcher=0x7f02005f;
-        public static final int icon=0x7f020060;
-        public static final int list_selector=0x7f020061;
-        public static final int ngoisao=0x7f020062;
-        public static final int paper=0x7f020063;
-        public static final int password_field=0x7f020064;
-        public static final int stat_sample=0x7f020065;
-        public static final int uet_connection_logo=0x7f020066;
-        public static final int username_field=0x7f020067;
-        public static final int vietnamnet=0x7f020068;
+        public static final int ic_launcher=0x7f02005b;
+        public static final int icon=0x7f02005c;
+        public static final int password_field=0x7f02005d;
+        public static final int stat_sample=0x7f02005e;
+        public static final int username_field=0x7f02005f;
     }
     public static final class id {
         public static final int action_bar=0x7f05001c;
@@ -1036,7 +994,6 @@ containing a value of this type.
         public static final int action_menu_divider=0x7f050016;
         public static final int action_menu_presenter=0x7f050017;
         public static final int action_mode_close_button=0x7f050024;
-        public static final int action_settings=0x7f050071;
         public static final int activity_chooser_view_content=0x7f050025;
         public static final int always=0x7f05000b;
         public static final int beginning=0x7f050011;
@@ -1204,9 +1161,6 @@ containing a value of this type.
         public static final int support_simple_spinner_dropdown_item=0x7f030023;
         public static final int unapproved_friendlist=0x7f030024;
     }
-    public static final class menu {
-        public static final int login=0x7f0c0000;
-    }
     public static final class string {
         /**  Content description for the action bar "home" affordance. [CHAR LIMIT=NONE] 
          */
@@ -1248,31 +1202,41 @@ containing a value of this type.
         /**  Description of a share target (both in the list of such or the default share button) in a ShareActionProvider (share UI). [CHAR LIMIT=NONE] 
          */
         public static final int abc_shareactionprovider_share_with_application=0x7f0a000b;
-        public static final int action_settings=0x7f0a000f;
         public static final int app_name=0x7f0a000d;
-        public static final int btn_add_friend=0x7f0a0014;
-        public static final int btn_post=0x7f0a0013;
-        public static final int btn_send=0x7f0a0017;
-        public static final int enter_message=0x7f0a0016;
-        public static final int fill_both_username_and_password=0x7f0a0022;
-        public static final int hello_world=0x7f0a000e;
-        public static final int local_service_stopped=0x7f0a0018;
-        public static final int make_sure_username_and_password_correct=0x7f0a0021;
-        public static final int new_friend_request_exist=0x7f0a0024;
-        public static final int not_connected_to_network=0x7f0a0020;
-        public static final int not_connected_to_service=0x7f0a001f;
-        public static final int requset_sent=0x7f0a0023;
-        public static final int response_friend_request_sent=0x7f0a0025;
-        public static final int signup_failed=0x7f0a001b;
-        public static final int signup_fill_all_fields=0x7f0a001e;
-        public static final int signup_successfull=0x7f0a0019;
-        public static final int signup_type_same_password_in_password_fields=0x7f0a001d;
-        public static final int signup_user_crash=0x7f0a001a;
-        public static final int status=0x7f0a0012;
-        public static final int status_hint=0x7f0a0015;
-        public static final int text=0x7f0a0010;
-        public static final int time=0x7f0a0011;
-        public static final int username_and_password_length_short=0x7f0a001c;
+        public static final int btn_add_friend=0x7f0a0012;
+        public static final int btn_post=0x7f0a0011;
+        public static final int btn_send=0x7f0a0015;
+        public static final int confirm_password=0x7f0a002c;
+        public static final int create_account=0x7f0a002b;
+        public static final int enter_message=0x7f0a0014;
+        public static final int fill_both_username_and_password=0x7f0a0020;
+        public static final int forgot_pass=0x7f0a002a;
+        public static final int keep_loged_in=0x7f0a0028;
+        public static final int local_service_stopped=0x7f0a0016;
+        public static final int login=0x7f0a0026;
+        public static final int login_slogan=0x7f0a002f;
+        public static final int make_sure_username_and_password_correct=0x7f0a001f;
+        public static final int new_friend_request_exist=0x7f0a0022;
+        public static final int not_connected_to_network=0x7f0a001e;
+        public static final int not_connected_to_service=0x7f0a001d;
+        public static final int password=0x7f0a0025;
+        public static final int remember=0x7f0a0027;
+        public static final int requset_sent=0x7f0a0021;
+        public static final int response_friend_request_sent=0x7f0a0023;
+        public static final int sign_in=0x7f0a002d;
+        public static final int signup=0x7f0a0029;
+        public static final int signup_failed=0x7f0a0019;
+        public static final int signup_fill_all_fields=0x7f0a001c;
+        public static final int signup_successfull=0x7f0a0017;
+        public static final int signup_type_same_password_in_password_fields=0x7f0a001b;
+        public static final int signup_user_crash=0x7f0a0018;
+        public static final int status=0x7f0a0010;
+        public static final int status_hint=0x7f0a0013;
+        public static final int submit=0x7f0a002e;
+        public static final int text=0x7f0a000e;
+        public static final int time=0x7f0a000f;
+        public static final int username=0x7f0a0024;
+        public static final int username_and_password_length_short=0x7f0a001a;
     }
     public static final class style {
         /** 
@@ -2531,7 +2495,7 @@ containing a value of this type.
          */
         public static final int[] MenuView = {
             0x010100ae, 0x0101012c, 0x0101012d, 0x0101012e,
-            0x0101012f, 0x01010130, 0x01010131, 0x010103ea
+            0x0101012f, 0x01010130, 0x01010131, 0x010103f8
         };
         /**
           <p>
